@@ -1,0 +1,12 @@
+<!-- startOffset和endOffset会撑开容器元素高度，可以起到缓冲效果，使其保持滚动的平滑性
+     startIndex=scrollTop/itemHeight
+     endIndex=startIndex+(clientHeight/itemHeight) -->
+
+<!-- 如果每个Item高度不是固定的，
+    方法一：给每个item节点绑定一个方法，当节点加载渲染后调用此方法获取元素正式高度
+            并将次位置index和height信息缓存起来，避免重复计算
+            优点：简单
+            缺点：不能准确的算出显示的count数，需要给定每一个元素预估一个高度值
+    方法二：添加一个获取列表项高度的方法，给方法传入item和index，返回对应列表项的高度每次计算也会将index和height的信息缓存起来
+            每次滑动都需要遍历所有节点找到当前scrollTop对应元素的位置，并且重新计算startIndex和endIndex。算法跟之前不一样
+-->
